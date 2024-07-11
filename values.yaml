@@ -29,13 +29,13 @@ ingress:
     enabled: true
   host: certification-delorme-3.apps.dso-formation.hp.numerique-interieur.com
 
-resources:
+resources: 
   limits:
     memory: "512Mi"
-    cpu: "1"  
+    cpu: "500m"  
   requests:
     memory: "512Mi"
-    cpu: "1"
+    cpu: "100m"
 
 global:
   postgresql:
