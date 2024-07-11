@@ -15,7 +15,7 @@ image:
   tag: "certification-delorme"
 
 imagePullSecrets:
-  - name: "imagePullSecrets"
+  - name: "registry-pull-secret"
 nameOverride: ""
 fullnameOverride: ""
 
