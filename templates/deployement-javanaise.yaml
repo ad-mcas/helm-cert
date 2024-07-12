@@ -23,10 +23,17 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+      - name: app-volume
+        emptyDir:
+          sizeLimit: 500Mi
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}javanaise-demo:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - mountPath: /app
+            name: app-volume
           env:
             - name: PG_SERVICE
               value: {{ .Values.postgresql.fullnameOverride }}
